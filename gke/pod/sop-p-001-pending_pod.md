@@ -76,9 +76,48 @@ When you receive an alert for a `Pending` pod:
 
 ---
 
-### 3. REPORTING
+###  3. REPORTING
 
-Always conclude by reporting the outcome, matching one of the templates (Success or Escalation).
-### 3. REPORTING
+Always conclude your run by providing a final report in this exact format. Fill in the placeholders with the actual data from your session.
 
-Always conclude by reporting the outcome, matching one of the templates (Success or Escalation).
+---
+
+#### Template: Success Scenario
+
+> **Incident Report (Resolved)**
+>
+> * **Incident:** Received alert for Pod `[pod-name]` in namespace `[namespace]` with status `Pending`.
+>
+> * **Diagnosis (Audit Trail):**
+>     1.  `kubectl describe pod [pod-name] -n [namespace]`
+>         * **Finding:** Event message showed: `[Event message, e.g., "3 node(s) had taints that the pod didn't tolerate"]`.
+>     2.  `[Any other diagnostic kubectl command, e.g., kubectl get nodes -o jsonpath='...']`
+>         * **Finding:** `[Key finding, e.g., "Discovered missing taint: 'app=gpu-workload:NoSchedule'"]`.
+>
+> * **Root Cause:** `[Brief, one-sentence summary, e.g., "Pod was missing the 'app=gpu-workload' toleration."]`
+>
+> * **Remediation Action:**
+>     1.  `[The exact mitigation command, e.g., kubectl patch deployment web-backend -n prod --type='json' -p='...']`
+>
+> * **Verification:**
+>     1.  `[The exact verification command, e.g., kubectl get pods -n prod -l app=web-backend]`
+>         * **Result:** New pods are `Running` and healthy.
+>
+> * **Status:** **Resolved.**
+
+---
+
+#### Template: Escalation Scenario
+
+> **Incident Report (Escalation)**
+>
+> * **Incident:** Received alert for Pod `[pod-name]` in namespace `[namespace]` with status `Pending`.
+>
+> * **Diagnosis (Audit Trail):**
+>     1.  `kubectl describe pod [pod-name] -n [namespace]`
+>         * **Finding:** Event message showed: `[Event message, e.g., "3 insufficient cpu"]`.
+>     2.  `[Any other diagnostic kubectl command, e.g., kubectl get deployments -n prod -l priority=low -o jsonpath='...']`
+>         * **Finding:** `[Key finding, e.g., "No low-priority deployments found to scale down."]`
+>
+> * **Root Cause:** `[Brief, one-sentence summary, e.g., "Pod
+
