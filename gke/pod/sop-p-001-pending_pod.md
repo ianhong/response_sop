@@ -20,7 +20,7 @@ When you receive an alert for a `Pending` pod:
 * **Trigger:** The `Events` show `"insufficient cpu"` or `"insufficient memory"`.
 * **Procedure:**
     1.  **Check Autoscaler:** Check the Cluster Autoscaler logs (`kubectl logs -n kube-system -l app=cluster-autoscaler`). If it's already scaling, report "Autoscaler is handling it" and monitor.
-    2.  **Mitigate:** If the CA is not active, find a low-priority app (in `dev`/`staging` or with `priority=low` label) and scale it down.
+    2.  **Mitigate:** If the CA is not active, find a low-priority app (with `priority=low` label) and scale it down.
     3.  **Verify:** Watch the original pod. If it becomes `Running`, report success.
     4.  **Escalate:** If you can't find a low-priority app, or the fix fails, escalate to a human.
 
