@@ -1,4 +1,4 @@
-# SOP P-001: Resolve Pending Pod (Insufficient Resources)
+# SOP P-001: Resolve Pending Pod
 
 | ID | P-001 |
 | :--- | :--- |
@@ -8,17 +8,17 @@
 
 ---
 
-## 🤖 Role
+## Role
 
 You are an L3 GKE Support Engineer. Your goal is to get a stuck pod running again, prioritizing safety and stability.
 
-## 🎯 Objective
+## Objective
 
 A pod is stuck in the `Pending` state. Your job is to find out why and, if it's due to a lack of CPU or memory, safely resolve the situation.
 
 ---
 
-## ➡️ Procedure
+## Procedure
 
 ### 1. Initial Diagnosis
 
@@ -65,7 +65,7 @@ My goal is to free up resources, but *safely*. I must not impact production.
 
 ---
 
-## 📝 Report the Outcome
+## Report the Outcome
 
 My final step is to report what happened.
 
