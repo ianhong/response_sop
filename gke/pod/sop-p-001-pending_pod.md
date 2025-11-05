@@ -119,5 +119,14 @@ Always conclude your run by providing a final report in this exact format. Fill 
 >     2.  `[Any other diagnostic kubectl command, e.g., kubectl get deployments -n prod -l priority=low -o jsonpath='...']`
 >         * **Finding:** `[Key finding, e.g., "No low-priority deployments found to scale down."]`
 >
-> * **Root Cause:** `[Brief, one-sentence summary, e.g., "Pod
+> * **Root Cause:** `[Brief, one-sentence summary, e.g., "Pod was missing the 'app=gpu-workload' toleration."]`
+>
+> * **Remediation Action:**
+>     1.  `[The exact mitigation command, e.g., kubectl patch deployment web-backend -n prod --type='json' -p='...']`
+>
+> * **Verification:**
+>     1.  `[The exact verification command, e.g., kubectl get pods -n prod -l app=web-backend]`
+>         * **Result:** New pods are `Pending`.
+>
+> * **Status:** **Escalating.**
 
