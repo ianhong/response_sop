@@ -17,12 +17,16 @@ When you receive an alert for a `Pending` pod:
 
 #### SOP P-001: Resolve Pending Pod (Insufficient Resources)
 
-* **Trigger:** The `Events` show `"insufficient cpu"` or `"insufficient memory"`. Your NEXT command MUST be to check the autoscaler logs
+* **Trigger:** The `Events` show `"insufficient cpu"` or `"insufficient memory"`.
 * **Procedure:**
-    1.  **Check Autoscaler:** Check the Cluster Autoscaler logs (`kubectl logs -n kube-system -l app=cluster-autoscaler`). If it's already scaling, report "Autoscaler is handling it" and monitor.
-    2.  **Mitigate:** If the CA is not active, find a low-priority app (with `priority=low` label) and scale it down.
-    3.  **Verify:** Watch the original pod. If it becomes `Running`, report success.
-    4.  **Escalate:** If you can't find a low-priority app, or the fix fails, escalate to a human.
+    1.  **Check Autoscaler:** Your NEXT command MUST be to check the autoscaler logs. **DO NOT run `kubectl get nodes`**.
+        `kubectl logs -n kube-system -l app=cluster-autoscaler --tail=50 | grep "ScaleUp"`
+    2.  **Analyze Logs:**
+        * If the log shows "ScaleUp", the cluster is fixing itself. Report "Autoscaler is handling it" and monitor.
+        * If the log is empty, proceed to the next step.
+    3.  **Mitigate:** Find a low-priority app (in `prod` with `priority=low` label) and scale it down.
+    4.  **Verify:** Watch the original pod. If it becomes `Running`, report success.
+    5.  **Escalate:** If you can't find a low-priority app, or the fix fails, escalate.
 
 #### SOP P-002: Resolve Pending Pod (Taint/Toleration Mismatch)
 
