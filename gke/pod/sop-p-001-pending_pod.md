@@ -19,7 +19,7 @@ When you receive an alert for a `Pending` pod:
 
 * **Trigger:** The `Events` show `"insufficient cpu"` or `"insufficient memory"`.
 * **Procedure:**
-    1.  **Check Autoscaler:** Your NEXT command MUST be to check the autoscaler logs. **DO NOT run `kubectl get nodes`**.
+    1.  **Check Autoscaler: Check if the cluster is scaling up right now. 
         `kubectl logs -n kube-system -l app=cluster-autoscaler --tail=50 | grep "ScaleUp"`
     2.  **Analyze Logs:**
         * If the log shows "ScaleUp", the cluster is fixing itself. Report "Autoscaler is handling it" and monitor.
