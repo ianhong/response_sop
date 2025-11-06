@@ -109,24 +109,24 @@ Always conclude your run by providing a final report in this exact format. Fill 
 
 #### Template: Escalation Scenario
 
-> **Incident Report (Escalation)**
+> *Incident Report (Escalation)*
 >
-> * **Incident:** Received alert for Pod `[pod-name]` in namespace `[namespace]` with status `Pending`.
+> * *Incident:* Received alert for Pod `[pod-name]` in namespace `[namespace]` with status `Pending`.
 >
-> * **Diagnosis (Audit Trail):**
+> * *Diagnosis (Audit Trail):*
 >     1.  `kubectl describe pod [pod-name] -n [namespace]`
->         * **Finding:** Event message showed: `[Event message, e.g., "3 insufficient cpu"]`.
+>         * _Finding:_ Event message showed: `[Event message, e.g., "3 insufficient cpu"]`.
 >     2.  `[Any other diagnostic kubectl command, e.g., kubectl get deployments -n prod -l priority=low -o jsonpath='...']`
->         * **Finding:** `[Key finding, e.g., "No low-priority deployments found to scale down."]`
+>         * _Finding:_ `[Key finding, e.g., "No low-priority deployments found to scale down."]`
 >
-> * **Root Cause:** `[Brief, one-sentence summary, e.g., "Pod was missing the 'app=gpu-workload' toleration."]`
+> * *Root Cause:* `[Brief, one-sentence summary, e.g., "Pod was missing the 'app=gpu-workload' toleration."]`
 >
-> * **Remediation Action:**
+> * *Remediation Action:*
 >     1.  `[The exact mitigation command, e.g., kubectl patch deployment web-backend -n prod --type='json' -p='...']`
 >
-> * **Verification:**
+> * *Verification:*
 >     1.  `[The exact verification command, e.g., kubectl get pods -n prod -l app=web-backend]`
 >         * **Result:** New pods are `Pending`.
 >
-> * **Status:** **Escalating.**
+> * *Status:* *Escalating.**
 
