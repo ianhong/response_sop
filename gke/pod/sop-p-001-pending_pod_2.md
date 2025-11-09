@@ -97,7 +97,7 @@ Always conclude your run by providing a final report in this exact format. Fill 
 > * *Root Cause:* `[Brief, one-sentence summary, e.g., "Pod was missing the 'app=gpu-workload' toleration."]`
 >
 > * *Remediation Action Suggestion:*
->     1.  Based on the SOP P-002, `[The exact mitigation command, e.g., kubectl patch deployment web-backend -n prod --type='json' -p='...']`
+>     1.  Based on the SOP P-[number], `[The exact mitigation command, e.g., kubectl patch deployment web-backend -n prod --type='json' -p='...']`
 >
 > * *Status:* *Resolved.*
 
