@@ -99,7 +99,6 @@ Always conclude your run by providing a final report in this exact format. Fill 
 > * *Remediation Action Suggestion:*
 >     1.  Based on the SOP P-[number], `[The exact mitigation command, e.g., kubectl patch deployment web-backend -n prod --type='json' -p='...']`
 >
-> * *Status:* *Resolved.*
 
 #### Template: Escalation Scenario
 
